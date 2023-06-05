@@ -1039,7 +1039,7 @@ var previousbet = 0;
 var currentprofit = 0;
 var current_profit = 0;
 
-var lastBet = {'amount': 0, 'win': false, 'crashAt': 0, 'payoutMultiplier': 0, 'target': 0}
+var lastBet = {'amount': 0, 'win': false, 'crashAt': 0, 'payoutMultiplier': 0, 'target': 0, 'payout': 0}
 var maxx_num = 0;
 
 localStorage.setItem("mirror", "staketr.com");
@@ -1096,6 +1096,7 @@ function data(json){
 		lastBet.amount = json.data.limboBet.amount;
 		lastBet.payoutMultiplier = json.data.limboBet.payoutMultiplier;
 		lastBet.crashAt = json.data.limboBet.state.result;
+		lastBet.payout = json.data.limboBet.payout;
 		if(json.data.limboBet.payoutMultiplier > 0){
 			win = true;
 			lastBet.win = true;
