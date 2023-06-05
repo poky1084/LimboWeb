@@ -1,0 +1,1786 @@
+
+<html>
+<body>
+<style>
+body {
+    overflow-anchor: none !important;
+    scroll-snap-stop: normal !important;
+    overscroll-behavior: unset !important;
+    scroll-behavior: unset !important;
+}
+
+body { background:#2c07a6;
+color: #848687;
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+line-height: 1.5em;
+}
+
+/* FINDER WINDOW */
+
+#window{
+  opacity: 0.9;
+  overflow: hidden;
+  text-overflow: ellipsis // This is where the magic happens
+	margin-left: 30px;
+	float: left;
+    width: 73%;
+    margin-top:20px;
+	margin-right: auto;
+    margin-bottom:20px;
+    min-width: 400px; 
+    background-color: #49494d;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 20px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 20px rgba(0,0,0,0.75);
+    /*-webkit-transition:all 0.5s; */
+    overflow: hidden; 
+}
+#window2{
+	height: 200px;
+	float: right;
+	/*text-align: center;*/
+    width: 25%;
+    margin-top:20px;
+    margin-bottom:15px; 
+    background-color: rgba(30, 30, 30, 0.7);
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 20px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 20px rgba(0,0,0,0.75);
+    /*-webkit-transition:all 0.5s; */
+    /*overflow: hidden;*/ 
+}
+
+#tokendiv {
+	margin-top:12px;
+	float: right;
+	text-align: left;
+    width: 25%;
+    margin-top:1px; 
+    background-color: rgba(30, 30, 30, 0.7);
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 20px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 20px rgba(0,0,0,0.75);
+    /*-webkit-transition:all 0.5s; */
+	font-size: 17px;
+}
+
+#apikeys {
+    background: transparent;
+    border: none;
+	width: 62%;
+	 font-size: 17px;
+}
+
+/* TOP BAR */
+#topbar{
+    width: 100%;
+    height: 21px;
+    font-size: 16px;
+    font-family: "Myriad Pro", sans-serif;
+    text-shadow:0px 1px 0px rgba(255,255,255,0.25);
+    -webkit-box-shadow:0 1px 0 rgba(0,0,0,0.5); 
+    -moz-box-shadow:0 1px 0 rgba(0,0,0,0.5); 
+   
+    
+}
+#topbar ul li {
+    float: left; 
+    padding:0 10px;
+    height: 21px;
+    line-height: 24px;
+}
+#topbar ul li:first-child{
+    font-size: 20px;
+    line-height: 26px;
+    margin-left: 5px;
+}
+#topbar ul li:nth-child(2){
+    font-family: "Myriad-Semi", sans-serif;
+}
+#topbar ul li:active{
+    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(1, #4a82ff),color-stop(0, #0052fc));
+    color: #fff;
+    text-shadow: none;
+}
+#toolbar{
+    width: 100%; 
+    height: 25px;
+    background: #4e4e4e;
+    border-radius:5px 5px 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis // This is where the magic happens
+
+    
+    -webkit-box-shadow:0px 1px 0px rgba(255,255,255,0.5) inset,0px 1px 0px #515151;
+    -moz-box-shadow:0px 1px 0px rgba(255,255,255,0.5) inset,0px 1px 0px #515151;
+    box-shadow:0px 1px 0px rgba(255,255,255,0.5) inset,0px 1px 0px #515151;        
+    
+}
+#toolbar .top{
+    float: left; 
+    width: 100%; 
+    height: 23px;
+}
+#toolbar .bottom{
+    float: left; 
+    width: 100%; 
+    height: 30px;
+}
+
+/*-----TRAFFIC LIGHTS-----*/
+#toolbar #lights{
+    float: left;
+    position:relative;
+    top:4px;
+    left:7px; 
+}
+.light{
+    float:left;
+    width:14px;
+    height:14px;
+    border-radius:14px;
+    -webkit-box-shadow:0px 1px 0px rgba(255,255,255,0.5),0px 0px 3px #000 inset;
+    -moz-box-shadow:0px 1px 0px rgba(255,255,255,0.5),0px 0px 3px #000 inset;
+    box-shadow:0px 1px 0px rgba(255,255,255,0.5),0px 0px 3px #000 inset;
+    overflow: hidden;
+}
+#lights:hover .glyph{
+    opacity: 1;
+    cursor:default;
+    
+}
+.light .shine{
+     width: 4px;
+     height:3px;
+     border-radius:10px;
+     /*background-image: -webkit-gradient(radial, center center, 0, center center, 3, from(rgba(255,255,255,1)), to(rgba(255,255,255,0)));*/
+     background: -moz-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */    
+     background-image: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+     background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+     background: -o-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Opera 12+ */
+     background: -ms-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
+     background: radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
+     
+}
+.light .glow{
+    width:14px;
+    height:8px; 
+    background-image: -webkit-gradient(radial, center bottom, 0, center center, 5, from(rgba(255,255,255,0.75)), to(rgba(255,255,255,0)));
+    background: 0px 0px -moz-radial-gradient(bottom, cover,  rgba(255,255,255,0.70) 0%, rgba(255,255,255,0) 80%); /* FF3.6+ */
+   
+}
+/*--RED--*/
+.red{
+   background: #f41b16; /* Old browsers */
+   background: -moz-linear-gradient(top,  #f41b16 0%, #fc7471 100%); /* FF3.6+ */
+   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f41b16), color-stop(100%,#fc7471)); /* Chrome,Safari4+ */
+   background: -webkit-linear-gradient(top,  #f41b16 0%,#fc7471 100%); /* Chrome10+,Safari5.1+ */
+   background: -o-linear-gradient(top,  #f41b16 0%,#fc7471 100%); /* Opera 11.10+ */
+   background: -ms-linear-gradient(top,  #f41b16 0%,#fc7471 100%); /* IE10+ */
+   background: linear-gradient(top,  #f41b16 0%,#fc7471 100%); /* W3C */   
+}
+.red:active{
+     
+    background: #972f2e; /* Old browsers */
+    background: -moz-linear-gradient(top,  #972f2e 0%, #fc7471 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#972f2e), color-stop(100%,#fc7471)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #972f2e 0%,#fc7471 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #972f2e 0%,#fc7471 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #972f2e 0%,#fc7471 100%); /* IE10+ */
+    background: linear-gradient(top,  #972f2e 0%,#fc7471 100%); /* W3C */    
+}
+.red .shine{    
+    position: relative;
+    top: -23px;
+    left: 5px;  
+}
+.red .glow{
+    position: relative;
+    top: -22px;
+}
+.red .glyph{
+    position: relative;
+    top: -6px;
+    left: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #9b3a36;
+    z-index: 50;
+    opacity: 0;
+}
+/*--YELLOW--*/
+.yellow{
+    background: #f4a316; /* Old browsers */
+    background: -moz-linear-gradient(left,  #f4a316 0%, #fcc371 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#f4a316), color-stop(100%,#fcc371)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #f4a316 0%,#fcc371 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #f4a316 0%,#fcc371 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #f4a316 0%,#fcc371 100%); /* IE10+ */
+    background: linear-gradient(left,  #f4a316 0%,#fcc371 100%); /* W3C */  
+    margin:0px 7px;
+}
+.yellow:active{
+    background: #ae4f1e; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ae4f1e 0%, #fcc371 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ae4f1e), color-stop(100%,#fcc371)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ae4f1e 0%,#fcc371 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ae4f1e 0%,#fcc371 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ae4f1e 0%,#fcc371 100%); /* IE10+ */
+    background: linear-gradient(top,  #ae4f1e 0%,#fcc371 100%); /* W3C */    
+}
+.yellow .shine{ 
+    position: relative;
+    top: -23px;
+    left: 5px;  
+}
+.yellow .glow{
+    position: relative;
+    top: -22px;
+}
+
+
+.yellow .glyph{
+    position: relative;
+    top: -7px;
+    left: 4px;
+    font-size: 24px;
+    color: #854322;
+    z-index: 50;
+    opacity: 0;
+    -webkit-transform: scaleY(1.5) scaleX(1.3);
+}
+
+/*--GREEN--*/
+.green{
+    
+    background: #4cae2e; /* Old browsers */
+    background: -moz-linear-gradient(top,  #4cae2e 0%, #dafc71 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4cae2e), color-stop(100%,#dafc71)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #4cae2e 0%,#dafc71 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #4cae2e 0%,#dafc71 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #4cae2e 0%,#dafc71 100%); /* IE10+ */
+    background: linear-gradient(top,  #4cae2e 0%,#dafc71 100%); /* W3C */
+    
+}
+.green:active{
+  background: #48752b; /* Old browsers */
+  background: -moz-linear-gradient(top,  #48752b 0%, #dafc71 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#48752b), color-stop(100%,#dafc71)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #48752b 0%,#dafc71 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #48752b 0%,#dafc71 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #48752b 0%,#dafc71 100%); /* IE10+ */
+  background: linear-gradient(top,  #48752b 0%,#dafc71 100%); /* W3C */
+  
+}
+.green .shine{  
+    position: relative;
+    top: -22px;
+    left: 5px; 
+}
+.green .glow{
+    position: relative;
+    top: -22px;
+}
+.green .glyph{
+    position: relative;
+    top: -6px;
+    left: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #25571d;
+    z-index: 50;
+    opacity: 0;
+}
+
+/* Horrible to do this for firefox */
+@-moz-document url-prefix() {
+  
+  .red .glyph {
+      position: relative;
+      top: -4px;
+  }  
+  .yellow .glyph {
+      top: -4px;
+      left: 3px;
+  }
+    
+  .green .glyph{
+      position: relative;
+      top: -4px;
+  }
+  
+}
+
+/*-----TITLE-----*/
+#title{
+	color: #d5d5d5;
+    float: left; 
+    position: relative;
+    top:6px;
+    width:40%;
+    left: 40%;
+	font-weight: bold;
+    font-family: "Myriad Pro", sans-serif; 
+    font-size: 13px; 
+    line-height: 14px; 
+}
+
+#titlestat{
+	color: #d5d5d5;
+    position: relative;
+    top:6px;
+	font-weight: bold;
+    font-family: "Myriad Pro", sans-serif; 
+    font-size: 13px; 
+    line-height: 14px; 
+}
+
+.folder{
+    float: left;
+    margin-right:5px;
+}
+.folder .tab{
+    width:4px;
+    height:2px;
+    background:#a4c5da;
+    border:1px solid #728ea3;
+    border-bottom: none;
+    border-radius:2px 2px 0px 0px;
+    -webkit-box-shadow:0px -1px 0px #99b5c7 inset;
+    margin-left: 1px;
+    z-index: 5000;
+    margin-bottom: -1px; 
+}
+.folder .body{
+    width: 14px;
+    height: 10px;
+    border:1px solid #6e8ba1;
+    
+    background: #b8cfe0; /* Old browsers */
+    background: -moz-linear-gradient(top,  #b8cfe0 0%, #86adc8 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b8cfe0), color-stop(100%,#86adc8)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #b8cfe0 0%,#86adc8 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #b8cfe0 0%,#86adc8 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #b8cfe0 0%,#86adc8 100%); /* IE10+ */
+    background: linear-gradient(top,  #b8cfe0 0%,#86adc8 100%); /* W3C */    
+    
+    z-index: -50;
+    
+    -webkit-box-shadow:0px 1px 0px rgba(255,255,255,0.25) inset,0px 1px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow:0px 1px 0px rgba(255,255,255,0.25) inset,0px 1px 0px rgba(0,0,0,0.2);
+}
+
+
+#nav{
+    margin: 1px 8px;
+    float: left;
+}
+#view{
+    margin: 2px 0 0 110px;
+    display: inline-block;
+}
+
+.control_box{
+    height:20px;
+    border-radius: 3px;
+    border: 1px solid #555;
+    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(1, #fefefe),color-stop(0, #b8b8b8));
+    box-shadow:0px 1px 0px rgba(255,255,255,0.25);
+}
+.control_box .control{
+    height:20px;
+    border-right: 1px solid #2e2e2e;
+    float: left;
+    text-align: center; 
+    width: 27px; 
+}
+.control:last-child{
+    border-right: 0px solid !important;
+}
+.control:active{ 
+    background: #b0afb0; 
+    -webkit-box-shadow:0px 0px 4px #000 inset;
+}
+.active{
+    background: #707070 !important;
+    -webkit-box-shadow:0px 3px 4px rgba(0,0,0,0.6) inset !important;
+}
+
+
+#body {
+    font-family: monospace;
+	position: relative;
+    font-size:10px;
+    float: left;
+    width: 100%;
+    min-height:130px;
+	background-color: rgba(30, 30, 30, 0.8);
+    padding:1px;
+    line-height:0.5em;
+}
+#body p { 
+   color: #63de00!important; 
+}
+
+@keyframes blink
+{
+	0%   {  background:rgba(91, 92, 91,100);  }
+	100% {  background:rgba(91, 92, 91,0);  }
+}
+
+@-webkit-keyframes blink {
+	0%   {  background:rgba(91, 92, 91,100);  }
+	100% {  background:rgba(91, 92, 91,0);  }
+}
+@-moz-keyframes blink {
+	0%   {  background:rgba(91, 92, 91,100);  }
+	100% {  background:rgba(91, 92, 91,0);  }
+}
+.cursor {
+  background:#5b5c5b;
+  color: #5b5c5b;
+  display:inline-block;
+  width:9px;
+  height:19px;
+  margin-bottom:3px;
+  -webkit-animation-name: blink;
+-webkit-animation-duration: 0.5s;
+-webkit-animation-iteration-count: infinite;
+-moz-animation-name: blink;
+-moz-animation-duration: 0.5s;
+-moz-animation-iteration-count: infinite;
+}
+
+  
+#body p::-webkit-selection  {
+    background:#fff;
+}
+#body p::selection { background:#fff; }
+#body p::-moz-selection { background:#fff; }
+
+#body p {
+  margin-top:5px;
+  margin-bottom:5px;
+  font-size:10px;
+}
+
+#content{
+    float: left; 
+    margin-top: 1px;
+}
+#foot{
+    height: 23px;
+    width: 100%;
+    float: left;
+    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(1, #cbcbcb),color-stop(0, #a7a7a7));
+    border-top:1px solid #515151;
+    border-radius:0 0 5px 5px;
+}
+#foot .handle{
+    width: 11px;
+    height: 11px;
+    float: right;
+    margin: 6px;
+    overflow: hidden;
+}
+.handle .grip{
+    -webkit-transform: rotate(45deg) scaley(3);
+    margin: 2px 0 0 2px;
+    color: #646464;
+    text-shadow: 1px 1px 0 #c6c6c6;
+    font-size: 10px;
+}
+
+.icon{
+    width: 86px; 
+    height: 100px;
+    margin: 20px; 
+    float: left;
+    font-family: "Myriad Pro", sans-serif; 
+    text-align: center; 
+    font-size: 12px;
+}
+.icon .frame{
+    width: 82px;
+    height: 82px; 
+    border-radius: 5px;
+    border: 2px solid transparent; 
+}
+.icon .name{
+    color: #000;
+    padding-top: 3px; 
+    border-radius:15px;
+    width: 55px;
+    margin: 5px 0 0 15px;
+}
+.icon .folder{
+    margin:15px 0 0 6px;
+}
+
+
+#console {
+	
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis // This is where the magic happens
+	font-size: 13.3px;
+	float: left;
+	border-collapse:separate; 
+	border-spacing:0.1em;
+}
+
+#canvas {
+    color: #999999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -100;
+}
+
+#online {
+	color: #49d6e3;
+	font-weight: bold;
+	text-align: center;
+}
+
+
+
+#pause {
+	background: #878683;
+	display: none;
+}
+
+
+
+#point {
+	/*position: fixed;*/
+	padding-top: 60px;
+	padding-left: 20px;
+	padding-bottom: 90px;
+	height: 250px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+
+
+
+.chatwindow {
+	float: right;
+	text-align: left;
+    width: 25%;
+    margin-top:1px; 
+    background-color: rgba(30, 30, 30, 0.7);
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 20px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 20px rgba(0,0,0,0.75);
+    /*-webkit-transition:all 0.5s; */
+   
+}
+
+
+#userlists {
+	display: none;
+	visibility: hidden;
+	margin-right: 41px;
+	float: right;
+	text-align: left;
+    width: 15%;
+	height: 300px;
+    background-color: rgba(30, 30, 30, 0.7);
+    border-radius: 5px;
+	overflow: auto;
+	color: #d5d5d5;
+}
+
+#userlists td {
+	color: #d5d5d5;
+}
+
+#statistics {
+	margin-right: 40px;
+	float: right;
+	text-align: left;
+    width: 37%;
+	height: 320px;
+    background-color: rgba(30, 30, 30, 0.7);
+    border-radius: 5px;
+	overflow: auto;
+}
+
+#charter {
+	margin-right: 10px;
+	float: right;
+	text-align: left;
+    width: 34%;
+	height: 320px;
+    background-color: rgba(30, 30, 30, 0.7);
+    border-radius: 5px;
+	overflow: auto;
+}
+
+#msg_box {
+	/*border-collapse:separate;*/ 
+	/*border-spacing:0.1em;*/
+	font-family: monospace;
+	font-size:15px;
+	height:270px;
+	overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow-x: hidden; 
+	width: 100%
+}
+
+#outputs {
+	/*border-collapse:separate;*/ 
+	/*border-spacing:0.1em;*/
+	font-family: monospace;
+	font-size:15px;
+	height:180px;
+	overflow-y: auto;
+	scroll-behavior: auto;
+	width: 100%
+}
+
+#chattitle {
+	text-align: center;
+}
+
+
+#messages {
+	border-collapse: collapse;
+	width: 100%
+	table-layout: fixed;
+}
+
+#messages td:nth-child(2) {
+	/*word-break: break-all;*/
+	overflow-wrap: normal;
+}
+
+#messages tr {
+	/*border-bottom: 0.6pt solid #585959;*/
+}
+
+#multi {
+	vertical-align: middle;
+	font-size: 95px;
+	color: #17eb50;
+}
+
+#cashout {
+	width: 50%
+}
+
+#runit {
+	width: 50%
+}
+
+#runcmd {
+	width: 30%
+}
+
+#runinput {
+	width: 70%
+}
+
+#valid2 {
+	width: 33%
+}
+
+#myProgress {
+  width: 100%;
+  background:#2c07a6;
+}
+
+#myBar {
+  width: 0%;
+  height: 20px;
+  background-color: #4e4e4e;
+}
+
+#consoleoutput {
+	opacity: 0.5;
+	width: 100%;
+	height: 100%;
+	background:#2c07a6;
+	color: white;
+	border: none;
+	overflow-y: auto;
+}
+
+#listed {
+	height: 160px;
+	
+}
+
+#userlists::-webkit-scrollbar {
+  width: 1em;
+}
+ 
+#userlists::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+#userlists::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px #5a5b5c;
+}
+
+.ws-table-all {
+table-layout: fixed;
+  width: 600px;
+      -webkit-text-size-adjust: 100%;
+    font-family: Verdana,sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #97a8a8;
+    box-sizing: inherit;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    display: table;
+    margin: 20px 0;
+}
+.ws-table-all tr  {
+    color: #97a8a8;
+    border-collapse: collapse;
+	text-align: center;
+}
+
+tr.spaceUnder>td {
+  padding-bottom: 2.3em;
+}
+
+tr.spaceUnder2>td {
+  padding-bottom: 5.6em;
+}
+#main-demo {
+	overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow-x: hidden; 
+	width: 500px;
+	height: 450px;
+
+}
+</style>
+
+<div id="window">
+ 	<div id="toolbar">
+		<div class="top">
+			<div id="lights">
+				<div class="light red">
+					-
+				</div>				
+				<div class="light yellow">
+					-
+
+				</div>
+				<div class="light green">
+				-
+
+				</div>
+			</div>
+			<div id="title">
+				Limbo Console
+			</div>
+			<div id="bubble">
+				<div class="shine"></div>
+				<div class="glow"></div>
+			</div>
+		</div>
+	</div>
+	<div id="body">
+	
+	<table id="console">
+	
+	</table>
+		
+	</div>	
+	
+	<div class="cursor"></div>	
+	
+	<center><input type="button" id="pause" value="Pause"/></center>
+</div>
+
+<div id="window2">
+ 	<div id="toolbar">
+		<div class="top">
+			<div id="usertitle">
+				<div id="online">
+					Point
+				</div>
+			</div>
+		</div>
+	</div>
+			<div id="myProgress">
+  <div id="myBar" style="margin: 0 auto;white-space: nowrap"><center><label id="progress" style="font-size: 13px;margin-top: -2px;font-weight: bold;margin: 0 auto;z-index: -1; white-space: nowrap;opacity: 0.3;">0</label></center></div>
+</div>
+	<center>
+	<div id="point">
+	<label id="multi">0.00x</label>
+
+	</div>
+
+	</center>
+
+</div>
+ <div id="tokendiv">
+	<input type="password" id="apikeys" placeholder="Stake.com api key here" style="color: grey;"><select name="mirror" id="currenc" style="width: 13%;background:#5a5b5c; ">
+  <option value="btc">btc</option>
+  <option value="ltc">ltc</option>
+  <option value="eth">eth</option>
+  <option value="usdt">usdt</option>
+  <option value="doge">doge</option>
+  <option value="bch">bch</option>
+  <option value="xrp">xrp</option>
+  <option value="eos">eos</option>
+  <option value="trx">trx</option>
+</select><select name="mirror" id="mirror" style="width: 25%;background:#5a5b5c; ">
+  <option value="stake.com">stake.com</option>
+  <option value="stake.bet">stake.bet</option>
+  <option value="stake.games">stake.games</option>
+  <option value="staketr.com">staketr.com</option>
+</select>
+</div>
+
+<canvas id="canvas">
+</canvas>
+
+<div class="chatwindow">
+ 	<div id="toolbar">
+		<div class="top">
+			<div id="chattitle">
+				script
+			</div>
+			
+		</div>
+	</div>
+	
+	<!--<script src="https://minnit.chat/js/embed.js" defer></script><minnit-chat data-chatname="https://organizations.minnit.chat/515501531192194/Main?embed&transparent&nickname=" data-style="width:100%;height:300px;"></minnit-chat>-->
+	<div id="msg_box">
+<code-input required id="main-demo" class="line-numbers" style="background:#2c07a6; resize: both; overflow: hidden;" lang="JavaScript" placeholder="" value="target = 1.3
+nextbet = balance / 1000;
+initialBetsize = nextbet
+initbalance = balance
+b2bsum = 1
+
+dobet = function(){
+    if(lastBet.win){
+		b2bsum *= lastBet.target;
+        if(b2bsum >= 2.5){
+			b2bsum = 1;
+            nextbet = initialBetsize;
+        } else {
+            nextbet = lastBet.target * nextbet;
+        }
+    } else {
+		b2bsum = 1;
+        nextbet = initialBetsize;
+    }
+	log('win ' + lastBet.win + '. b2b: ' + b2bsum +  ' | Target: ' + target.toFixed(2) + 'x | bet: ' + nextbet.toFixed(8) + ' ' + currency + ' | Outcome: ' + lastBet.crashAt.toFixed(2) + 'x');
+}" template="demo"></code-input>
+	</div>
+	<center><button id="cashout" type="button">Stop</button><button id="runit" type="button">Run</button>
+	</center>
+	<div id="outputs">
+	<textarea id="consoleoutput"></textarea>
+	</div>
+	<center><button id="runcmd" type="button">Command</button><input id="runinput" type="text">
+	</center>
+</div>
+<div id="userlists">
+ 	<div id="toolbar">
+		<div class="top">
+			<div id="usertitle">
+				<div id="online">
+					Users
+				</div>
+			</div>
+		</div>
+	</div>
+	<table id="listed" style="width:100%">
+
+	
+	</table>
+</div>
+<div id="statistics">
+ 	<div id="toolbar">
+		<center><div id="titlestat">
+			Stat
+		</div></center>
+	</div>
+	<table class="ws-table-all notranslate">
+  <tbody><tr style="margin-bottom: 6em;">
+    <th>Balance</th>
+    <th>Profit</th>
+	 <th>Wagered</th>
+	   <th>Highest Profit</th>
+    <th>Lowest Profit</th>
+	 <th>Highest Bet</th>
+  </tr>
+  <tr class="spaceUnder">
+	<td id="balances">
+      0.00000000
+    </td>
+    <td id="profittotal">
+      0.00000000
+    </td>
+    <td id="wager_total">
+      0.00000000
+    </td>
+	    <td id="highest_prof">
+      0.00000000
+    </td>
+	    <td id="lowest_prof">
+      0.00000000
+    </td>
+	    <td id="highest_bet">
+      0.00000000
+    </td>
+  </tr>
+  <tr>
+    <th>Bets</th>
+    <th>Wins</th>
+	 <th>Losses</th>
+	   <th>Current streak</th>
+    <th>Highest streak</th>
+	 <th>Lowest streak</th>
+  </tr>
+  <tr class="spaceUnder2">
+	<td id="bets_total">
+      0
+    </td>
+    <td id="wins_total">
+      0
+    </td>
+    <td id="losses_total">
+      0
+    </td>
+	    <td id="current_streak">
+      0
+    </td>
+	    <td id="highest_strk">
+      0
+    </td>
+	    <td id="lowest_strk">
+      0
+    </td>
+  </tr>
+</tbody>
+<td></td><td></td>
+<td style="font-weight: bold;">Time Running</td>
+<td>12:00:00</td></table>
+</div>
+
+<div id="charter">
+ 	<div id="toolbar">
+		<center><div id="titlestat">
+			Chart
+		</div></center>
+	</div>
+	<div id="chartContainer" style="height: 265px; width:100%;"></div>
+</div>
+<!--<div class="outconsole">
+</div>-->
+
+<!--Prism-->
+<link id="import-theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/line-numbers/prism-line-numbers.min.css"/>
+
+<!--Code-input is on GitHub ==> https://github.com/WebCoder49/code-input-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/WebCoder49/code-input@1.5.0/code-input.css">
+<script src="https://cdn.jsdelivr.net/gh/WebCoder49/code-input@1.5.0/code-input.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/WebCoder49/code-input@1.5.0/plugins/indent.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/WebCoder49/code-input@1.5.0/plugins/prism-line-numbers.css">
+<script>
+  codeInput.registerTemplate("code-input", codeInput.templates.prism(Prism, [new codeInput.plugins.Indent()]));
+  codeInput.registerTemplate("demo", codeInput.templates.prism(Prism, [new codeInput.plugins.Indent()]));
+</script>
+<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+var target_multi = 1.01;
+var basebet = 0;
+var amount = basebet;
+var currency = "ltc";
+var tokenapi = "";
+var running = true;
+var rowcount = 30;
+var countwidth = 100;
+var nextbet = 0;
+var stopped = true;
+var user_not_found = false;
+var bet_found = false;
+var run_clicked = false;
+var bet_placed = false;
+var win = false;
+
+var losestreak = 0;
+var winstreak  = 0;
+var highest_streak = [0];
+var lowest_streak = [0];
+var current_balance = 0;
+var balance = 0;
+var betcount = 0;
+var bets = 0
+var wins = 0;
+var losses = 0;
+var wagered = 0;
+var profit_total = 0;
+var highest_profit = [0];
+var lowest_profit = [0];
+var highest_bet = [0];
+var currentstreak = 0;
+var profit = 0;
+var previousbet = 0;
+var currentprofit = 0;
+var current_profit = 0;
+
+var lastBet = {'amount': 0, 'win': false, 'crashAt': 0, 'payoutMultiplier': 0, 'target': 0}
+var maxx_num = 0;
+
+localStorage.setItem("mirror", "staketr.com");
+
+function LimboBet(amount, target_multi){
+	var body = {
+		variables:{
+		"multiplierTarget": target_multi,
+        "identifier": "w2q2MTCrj20cucD13EFr5",
+        "amount": amount,
+        "currency": localStorage.getItem("currenc")
+		},
+		query:"mutation LimboBet($amount: Float!, $multiplierTarget: Float!, $currency: CurrencyEnum!, $identifier: String!) {\n  limboBet(\n    amount: $amount\n    currency: $currency\n    multiplierTarget: $multiplierTarget\n    identifier: $identifier\n  ) {\n    ...CasinoBet\n    state {\n      ...CasinoGameLimbo\n    }\n  }\n}\n\nfragment CasinoBet on CasinoBet {\n  id\n  active\n  payoutMultiplier\n  amountMultiplier\n  amount\n  payout\n  updatedAt\n  currency\n  game\n  user {\n    id\n    name\n  }\n}\n\nfragment CasinoGameLimbo on CasinoGameLimbo {\n  result\n  multiplierTarget\n}\n"	}
+		
+	var mirror = localStorage.getItem("mirror");
+	fetch('https://' +  mirror + '/_api/graphql', {
+		method: 'post',
+		body:    JSON.stringify(body),
+		headers: { 'Content-Type': 'application/json','x-access-token': tokenapi},
+	})
+	.then(res => res.json())
+	.then(json => data(json))
+	.catch(function(err, json) {
+		console.log(err);
+		if(running == true)
+		{
+			setTimeout(() => {
+				LimboBet(amount, target_multi)							
+			}, "2000");
+			
+		}
+	});
+	
+}
+function data(json){
+	if(run_clicked == true)
+	{
+		var table = document.getElementById("console");
+		var multiplierOut = json.data.limboBet.payoutMultiplier;
+		var nicname = "";
+		var crpamount = json.data.limboBet.amount;
+		var payout = json.data.limboBet.payout;
+		
+		var str_amount = crpamount;
+		var str_payout = payout.toFixed(8);
+		var str_payoutMultiplier = multiplierOut.toFixed(2);
+		var str_currency = currency;
+		var str_game = "limbo";
+		var str_user = "poky1084";
+		var str_updatedAt = "2023"
+		var current_result = json.data.limboBet.state.result.toFixed(2);
+		var multiplierTarget = json.data.limboBet.state.multiplierTarget.toFixed(2);
+		
+		lastBet.amount = json.data.limboBet.amount;
+		lastBet.payoutMultiplier = json.data.limboBet.state.multiplierTarget;
+		
+		if(json.data.limboBet.payoutMultiplier > 0){
+			win = true;
+			lastBet.win = true;
+
+			//win
+			winstreak++;
+			wins++;
+			losestreak = 0;
+				
+		} else {
+
+			win = false;
+			lastBet.win = false;
+			
+			losses++;
+			losestreak++;
+			winstreak = 0;
+			
+										
+		} 
+	
+		current_profit = parseFloat(json.data.limboBet.payout) - parseFloat(json.data.limboBet.amount);
+		profit_total += parseFloat(json.data.limboBet.payout) - parseFloat(json.data.limboBet.amount);
+		wagered += parseFloat(amount);
+		
+		var logged_1 = 'unknown';
+		if(win){
+			logged_1 = '[win ] ' +  lastBet.payoutMultiplier.toFixed(2) + 'x' + ' | profit: ' + profit_total.toFixed(8) + ' | bet: ' +  json.data.limboBet.amount.toFixed(8) + ' ' + currency + ' | payout: ' + json.data.limboBet.payout.toFixed(8) + ' | target/result: [' +  json.data.limboBet.state.multiplierTarget.toFixed(2) + 'x | ' + json.data.limboBet.state.result.toFixed(2) + 'x]';
+		} else {
+			logged_1 = '[loss] ' +  lastBet.payoutMultiplier.toFixed(2) + 'x' + ' | profit: ' + profit_total.toFixed(8) + ' | bet: ' +  json.data.limboBet.amount.toFixed(8) + ' ' + currency + ' | payout: ' + json.data.limboBet.payout.toFixed(8) + ' | target/result: [' +  json.data.limboBet.state.multiplierTarget.toFixed(2) + 'x | ' + json.data.limboBet.state.result.toFixed(2) + 'x]';
+		}
+		
+	
+		var row = document.createElement("tr");
+		var msg = document.createElement("td");
+		msg.innerHTML = logged_1;
+		
+		row.appendChild(msg);
+
+		document.getElementById("console").appendChild(row);
+		if (table.rows.length > rowcount)
+		{
+			table.deleteRow(1);
+		}
+			
+		
+		var table = document.getElementById("console");
+		last = table.rows[ table.rows.length - 1 ];
+		var div = document.createElement("div");
+	
+		
+		if(winstreak > losestreak){
+			currentstreak = winstreak;
+		} else {
+			currentstreak = -losestreak;
+		}
+	
+		if(highest_bet[highest_bet.length-1] < json.data.limboBet.amount){
+			highest_bet.pop();
+			highest_bet.push(json.data.limboBet.amount);
+		}
+		if(highest_profit[highest_profit.length-1] < profit_total){
+			highest_profit.pop();
+			highest_profit.push(profit_total);
+		}
+		if(lowest_profit[lowest_profit.length-1] > profit_total){
+			lowest_profit.pop();
+			lowest_profit.push(profit_total);
+		}
+		if(highest_streak[highest_streak.length-1] < currentstreak){
+			highest_streak.pop();
+			highest_streak.push(currentstreak);
+		}
+		if(lowest_streak[lowest_streak.length-1] > currentstreak){
+			lowest_streak.pop();
+			lowest_streak.push(currentstreak);
+		}
+
+		balance = current_balance;
+		profit = profit_total;
+		previousbet = json.data.limboBet.amount;
+		currentprofit = current_profit;
+		betcount++;
+		bets = betcount;
+		
+		chart.options.axisY = {
+			  maximum: Math.max.apply(null, highest_profit),
+			  minimum: Math.min.apply(null, lowest_profit),
+			};
+			chart.render();
+		
+		xVal = bets;
+		yVal = profit_total;
+		updateChart(dataLength);
+		
+		
+		document.getElementById("multi").innerHTML = toFixedNo(json.data.limboBet.state.result, 2);
+		document.getElementById("profittotal").innerHTML = profit_total.toFixed(8);
+		document.getElementById("wager_total").innerHTML = wagered.toFixed(8);
+		document.getElementById("highest_prof").innerHTML = Math.max.apply(null, highest_profit).toFixed(8);
+		document.getElementById("lowest_prof").innerHTML = Math.min.apply(null, lowest_profit).toFixed(8);
+		document.getElementById("highest_bet").innerHTML = Math.max.apply(null, highest_bet).toFixed(8);
+		document.getElementById("bets_total").innerHTML = bets;
+		document.getElementById("wins_total").innerHTML = wins;
+		document.getElementById("losses_total").innerHTML = losses;
+		document.getElementById("current_streak").innerHTML = currentstreak;
+		document.getElementById("highest_strk").innerHTML = Math.max.apply(null, highest_streak);
+		document.getElementById("lowest_strk").innerHTML = Math.min.apply(null, lowest_streak);
+
+
+		dobet();
+	
+		amount = nextbet;
+		target_multi = target;
+		lastBet.amount = json.data.limboBet.amount;
+		lastBet.target = json.data.limboBet.state.multiplierTarget;
+		LimboBet(amount, target_multi);
+
+	}
+}
+
+function indexMatchingText(text) {
+    var opts = document.getElementById("currenc").options;
+	for(var i = 0; i < opts.length; i++) {
+		if(opts[i].innerText == text) {
+			return i;
+		}
+	}
+	return 0;
+}
+setTimeout(() => {
+	if (localStorage.getItem("currenc") != null) {
+	//document.getElementById("currenc").value = localStorage.getItem("currenc");
+	currency = localStorage.getItem("currenc");
+	document.getElementById("currenc").options[indexMatchingText(currency)].selected = 'selected';
+	}
+	userBalances();	
+}, "600");
+
+
+
+if (localStorage.getItem("mirror") != null) {
+	document.getElementById("mirror").value = localStorage.getItem("mirror");
+}
+$('#mirror').on('change', function (e) {
+	var mirror = document.getElementById('mirror');
+	var input_mirror = mirror.options[mirror.selectedIndex].value;
+	localStorage.setItem("mirror", input_mirror);
+	window.location.reload(true);
+});
+$('#currenc').on('change', function (e) {
+	var curry = document.getElementById('currenc').value;
+	localStorage.setItem("currenc", curry);
+	currency = localStorage.getItem("currenc");
+	userBalances();
+	//window.location.reload(true);
+});
+
+
+startScoket();
+//initUser();	
+setTimeout(() => {
+	initUser();						
+}, "200");
+
+setTimeout(() => {
+	//document.getElementById("runit").click();							
+}, "3000");
+var dps = []; // dataPoints
+var chart = new CanvasJS.Chart("chartContainer", {
+	backgroundColor: "#2c07a6",
+	gridThickness: 0,
+	title :{
+		text: ""
+	},
+	axisX:{
+			valueFormatString: "#"
+		},
+		axisY:{
+		labelFontSize: 13,
+		maximum: maxx_num,
+		labelFontColor: "#d5d5d5",
+		valueFormatString: "0.00000000",
+			stripLines:[
+			{                                
+				color:"#d5d5d5"                
+			}
+			]                    
+	},
+	data: [{
+		type: "line",
+		dataPoints: dps
+	}]
+});
+
+var xVal = 0;
+var yVal = 0; 
+var updateInterval = 500;
+var dataLength = 120; // number of dataPoints visible at any point
+
+var updateChart = function (count) {
+
+	dps.push({
+		x: xVal,
+		y: yVal
+	});
+	
+	if (dps.length > dataLength) {
+		dps.shift();
+	}
+
+	chart.render();
+};
+
+
+
+var prog = document.getElementById("progress");
+prog.style.display = "none";
+var coder = document.getElementById("msg_box");
+coder.style.background = "#2c07a6";
+
+function toFixedNo(num, fixed) {
+    var re = new RegExp('^-?\\d+(?:\.\\d{0,' + (fixed || -1) + '})?');
+    return num.toString().match(re)[0];
+}
+
+if(localStorage.getItem("codetext") != null){
+	document.getElementById("main-demo").value = localStorage.getItem("codetext");
+} 
+if(localStorage.getItem("apitoken") != null){
+	document.getElementById("apikeys").value = localStorage.getItem("apitoken");
+	tokenapi = localStorage.getItem("apitoken");
+} 
+const inputHandler = function(e) {
+  localStorage.setItem("apitoken", e.target.value);
+  tokenapi = e.target.value;
+  if(e.target.value.length >= 96){
+	
+	setTimeout(() => {
+		window.location.reload(true);							
+	}, "1000");
+	
+  }
+}
+
+const inputCode = function(e) {
+  localStorage.setItem("codetext", e.target.value);
+}
+//var savedcode = localStorage.getItem("codetext");
+var btnrun = document.getElementById("runit");
+var codevalue = document.getElementById("main-demo").value.toString();
+btnrun.addEventListener('click', function() {  if(document.getElementById("apikeys").value.length < 96){return;}; run_clicked = true; localStorage.setItem("codetext", document.getElementById("main-demo").value); eval(localStorage.getItem("codetext")); currency = localStorage.getItem("currenc");document.getElementById('currenc').value = localStorage.getItem("currenc"); btnrun.disabled = true; stopped = false;  tokenapi = document.getElementById("apikeys").value; userBalances(); LimboBet(nextbet, target);}, false);
+
+var btncash = document.getElementById("cashout");
+btncash.addEventListener('click', function() { run_clicked = false; btnrun.disabled = false; stopped = true; eval("dobet = function(){}"); }, false);
+
+
+
+function stop(){
+	run_clicked = false; 
+	btnrun.disabled = false; 
+	stopped = true; 
+	eval("dobet = function(){}");
+}
+
+function resetstats(){
+	losestreak = 0;
+	winstreak  = 0;
+	highest_streak = [0];
+	lowest_streak = [0];
+	current_balance = 0;
+	betcount = 0;
+	bets = 0
+	wins = 0;
+	losses = 0;
+	wagered = 0;
+	profit_total = 0;
+	highest_profit = [0];
+	lowest_profit = [0];
+	highest_bet = [0];
+	currentstreak = 0;
+	profit = 0;
+	currentprofit = 0;
+	current_profit = 0;
+	
+
+	profit = profit_total;
+	currentprofit = current_profit;
+	bets = betcount;
+	
+	chart.options.axisY = {
+		  maximum: Math.max.apply(null, highest_profit),
+		  minimum: Math.min.apply(null, lowest_profit),
+		};
+		chart.render();
+	
+	xVal = bets;
+	yVal = profit_total;
+	updateChart(dataLength);
+	
+	document.getElementById("profittotal").innerHTML = profit_total.toFixed(8);
+	document.getElementById("wager_total").innerHTML = wagered.toFixed(8);
+	document.getElementById("highest_prof").innerHTML = Math.max.apply(null, highest_profit).toFixed(8);
+	document.getElementById("lowest_prof").innerHTML = Math.min.apply(null, lowest_profit).toFixed(8);
+	document.getElementById("highest_bet").innerHTML = Math.max.apply(null, highest_bet).toFixed(8);
+	document.getElementById("bets_total").innerHTML = bets;
+	document.getElementById("wins_total").innerHTML = wins;
+	document.getElementById("losses_total").innerHTML = losses;
+	document.getElementById("current_streak").innerHTML = currentstreak;
+	document.getElementById("highest_strk").innerHTML = Math.max.apply(null, highest_streak);
+	document.getElementById("lowest_strk").innerHTML = Math.min.apply(null, lowest_streak);
+}
+
+function initUser(){
+
+var body = {
+		operationName:"initialUserRequest",
+		variables:{},
+		query:"query initialUserRequest {\n  user {\n    ...UserAuth\n    __typename\n  }\n}\n\nfragment UserAuth on User {\n  id\n  name\n  email\n  hasPhoneNumberVerified\n  hasEmailVerified\n  hasPassword\n  intercomHash\n  createdAt\n  hasTfaEnabled\n  mixpanelId\n  hasOauth\n  isKycBasicRequired\n  isKycExtendedRequired\n  isKycFullRequired\n  kycBasic {\n    id\n    status\n    __typename\n  }\n  kycExtended {\n    id\n    status\n    __typename\n  }\n  kycFull {\n    id\n    status\n    __typename\n  }\n  flags {\n    flag\n    __typename\n  }\n  roles {\n    name\n    __typename\n  }\n  balances {\n    ...UserBalanceFragment\n    __typename\n  }\n  activeClientSeed {\n    id\n    seed\n    __typename\n  }\n  previousServerSeed {\n    id\n    seed\n    __typename\n  }\n  activeServerSeed {\n    id\n    seedHash\n    nextSeedHash\n    nonce\n    blocked\n    __typename\n  }\n  __typename\n}\n\nfragment UserBalanceFragment on UserBalance {\n  available {\n    amount\n    currency\n    __typename\n  }\n  vault {\n    amount\n    currency\n    __typename\n  }\n  __typename\n}\n"		}
+		
+	var mirror = localStorage.getItem("mirror");
+	fetch('https://' +  mirror + '/_api/graphql', {
+		method: 'post',
+		body:    JSON.stringify(body),
+		headers: { 'Content-Type': 'application/json','x-access-token': tokenapi},
+	})
+	.then(res => res.json())
+	.then(json => outjson(json))
+	.catch(function(err, json) {
+		console.log(err);
+		setTimeout(() => {
+			//initUser();							
+		}, "2000");
+	});
+
+
+}
+
+
+function outjson(json){
+
+	//let nicker = json.data.user.name
+	//localStorage.setItem("nicks", nicker);
+	
+	select = document.getElementById('currenc');
+	for (var i = 0; i < json.data.user.balances.length; i++)
+	{
+		var opt = document.createElement('option');
+		opt.value = json.data.user.balances[i].available.currency;
+		opt.innerHTML = json.data.user.balances[i].available.currency;
+		select.appendChild(opt);
+	}
+	
+	for (var i = 0; i < json.data.user.balances.length; i++)
+	{
+		if (json.data.user.balances[i].available.currency == currency)
+		{
+			current_balance = json.data.user.balances[i].available.amount;
+			balance = current_balance;
+			var balan = document.getElementById("balances");
+			balan.innerHTML = balance.toFixed(8);
+
+		}
+	}
+}
+
+function userBalances(){
+
+var body = {
+		operationName:"UserBalances",
+		variables:{},
+		query:"query UserBalances {\n  user {\n    id\n    balances {\n      available {\n        amount\n        currency\n        __typename\n      }\n      vault {\n        amount\n        currency\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}\n"		}
+		
+	var mirror = localStorage.getItem("mirror");
+	fetch('https://' +  mirror + '/_api/graphql', {
+		method: 'post',
+		body:    JSON.stringify(body),
+		headers: { 'Content-Type': 'application/json','x-access-token': tokenapi},
+	})
+	.then(res => res.json())
+	.then(json => outbals(json))
+	.catch(function(err, json) {
+		console.log(err);
+		setTimeout(() => {
+			//initUser();							
+		}, "2000");
+	});
+
+
+}
+
+function outbals(json){
+
+	for (var i = 0; i < json.data.user.balances.length; i++)
+	{
+		if (json.data.user.balances[i].available.currency == localStorage.getItem("currenc"))
+		{
+			current_balance = json.data.user.balances[i].available.amount;
+			balance = current_balance;
+			var balan = document.getElementById("balances");
+			balan.innerHTML = balance.toFixed(8);
+
+		}
+	}
+}
+
+
+apichange = document.getElementById("apikeys");
+apichange.addEventListener('input', inputHandler);
+
+codechange = document.getElementById("main-demo");
+codechange.addEventListener('input', inputCode);
+
+function log(val){
+	document.getElementById("consoleoutput").value += val + "\n"
+	document.getElementById("consoleoutput").scrollTop = document.getElementById("consoleoutput").scrollHeight 
+	var text = $("#consoleoutput").val();   
+	var lines = text.split(/\r|\r\n|\n/);
+	var count = lines.length;
+	if(parseInt(count) > 300){
+		$('#consoleoutput').val(function(_, val){    
+			return val.split('\n').slice(1).join('\n');
+		});
+	}
+}
+
+var inputcmd = document.getElementById("runinput").innerHTML;
+var cmdrunn = document.getElementById("runcmd");
+cmdrunn.addEventListener('click', function() {  $('#loop').text().length?$('#loop').replaceWith(`\x3Cscript id="loop"\x3E${$('#runinput').val().trim()}\x3C/script\x3E`):$('head').append(`\x3Cscript id="loop"\x3E${$('#runinput').val().trim()}\x3C/script\x3E`) }, false);
+
+function run_dobet(){
+	stopped = true;
+	dobet();
+}
+
+function startScoket(){
+var mirror = document.getElementById('mirror').value;
+let websocket = new WebSocket('wss://' + mirror + '/_api/websockets', 'graphql-transport-ws');
+    
+  // Event handler for successful WebSocket connection
+  websocket.onopen = () => {
+    // Send the GraphQL subscription query as a JSON string
+    websocket.send(JSON.stringify({"type":"connection_init","payload":{"accessToken":tokenapi,"language":"en","lockdownToken":"s5MNWtjTM5TvCMkAzxov"}}));
+  };
+
+  // Event handler for incoming messages
+  websocket.onmessage = (event) => {
+    //console.log('Received message:', event.data);
+			const obj = JSON.parse(event.data);		
+			if (obj.hasOwnProperty("payload")) {
+				if (obj.payload.data.hasOwnProperty("availableBalances")) {
+					var balan = document.getElementById("balances");
+					balan.innerHTML = obj.payload.data.availableBalances.balance.amount.toFixed(8);
+					current_balance = obj.payload.data.availableBalances.balance.amount;
+					balance = current_balance;
+					
+				} 
+			}
+				
+  if(event.data.includes("connection_ack")){
+  
+		websocket.send(JSON.stringify({"id":"e0f09352-0cc1-4485-8acf-ca53caccb5a8","type":"subscribe","payload":{"query":"subscription AvailableBalances {\n  availableBalances {\n    amount\n    identifier\n    balance {\n      amount\n      currency\n    }\n  }\n}\n"}}));
+	
+  };
+  }
+  // Event handler for WebSocket errors
+  websocket.onerror = (error) => {
+    console.error('WebSocket error:', error);
+	startScoket();
+	//window.location.reload(true);
+  };
+
+  // Event handler for WebSocket connection close
+  websocket.onclose = (event) => {
+ //window.location.reload(true);
+	startScoket();
+    console.log('WebSocket connection closed:', event.code, event.reason);
+  };
+  }
+			//var running = true;
+			//var rowcount = 25;
+			var paused = document.getElementById("pause");
+			
+			if (paused)
+			{
+				paused.onclick = function () {
+					
+					if(paused.value == 'Pause')
+					{
+						paused.value = 'Start'
+						running = false;
+					}
+					else
+					{
+						paused.value = 'Pause'
+						running = true;	
+					}
+				}
+			}
+			
+			var userAgent = navigator.userAgent.toLowerCase();
+            var Android = userAgent.indexOf("android") > -1;
+              
+            if(Android) {
+                rowcount = 20;
+			}
+			else
+			{
+				rowcount = 20;
+			}
+
+			for(var i = 0; i < rowcount; i++)
+			{
+				var rows = document.createElement("tr");
+				var empty = document.createElement("td");
+				empty.innerHTML = '-';
+				rows.appendChild(empty);
+				document.getElementById("console").appendChild(rows);
+			}
+			
+var inputcommand = document.getElementById("runinput");
+
+
+inputcommand.addEventListener("keyup", function(event) {
+
+  if (event.keyCode === 13) {
+
+    event.preventDefault();
+	
+    document.getElementById("runcmd").click();
+
+  }
+});
+ 
+</script>
+<script>
+var ClassicalNoise = function(r) { // Classic Perlin noise in 3D, for comparison 
+	if (r == undefined) r = Math;
+  this.grad3 = [[1,1,0],[-1,1,0],[1,-1,0],[-1,-1,0], 
+                                 [1,0,1],[-1,0,1],[1,0,-1],[-1,0,-1], 
+                                 [0,1,1],[0,-1,1],[0,1,-1],[0,-1,-1]]; 
+  this.p = [];
+  for (var i=0; i<256; i++) {
+	  this.p[i] = Math.floor(r.random()*256);
+  }
+  // To remove the need for index wrapping, double the permutation table length 
+  this.perm = []; 
+  for(var i=0; i<512; i++) {
+		this.perm[i]=this.p[i & 255];
+  }
+};
+
+ClassicalNoise.prototype.dot = function(g, x, y, z) { 
+    return g[0]*x + g[1]*y + g[2]*z; 
+};
+
+ClassicalNoise.prototype.mix = function(a, b, t) { 
+    return (1.0-t)*a + t*b; 
+};
+
+ClassicalNoise.prototype.fade = function(t) { 
+    return t*t*t*(t*(t*6.0-15.0)+10.0); 
+};
+
+  // Classic Perlin noise, 3D version 
+ClassicalNoise.prototype.noise = function(x, y, z) { 
+  // Find unit grid cell containing point 
+  var X = Math.floor(x); 
+  var Y = Math.floor(y); 
+  var Z = Math.floor(z); 
+  
+  // Get relative xyz coordinates of point within that cell 
+  x = x - X; 
+  y = y - Y; 
+  z = z - Z; 
+  
+  // Wrap the integer cells at 255 (smaller integer period can be introduced here) 
+  X = X & 255; 
+  Y = Y & 255; 
+  Z = Z & 255;
+  
+  // Calculate a set of eight hashed gradient indices 
+  var gi000 = this.perm[X+this.perm[Y+this.perm[Z]]] % 12; 
+  var gi001 = this.perm[X+this.perm[Y+this.perm[Z+1]]] % 12; 
+  var gi010 = this.perm[X+this.perm[Y+1+this.perm[Z]]] % 12; 
+  var gi011 = this.perm[X+this.perm[Y+1+this.perm[Z+1]]] % 12; 
+  var gi100 = this.perm[X+1+this.perm[Y+this.perm[Z]]] % 12; 
+  var gi101 = this.perm[X+1+this.perm[Y+this.perm[Z+1]]] % 12; 
+  var gi110 = this.perm[X+1+this.perm[Y+1+this.perm[Z]]] % 12; 
+  var gi111 = this.perm[X+1+this.perm[Y+1+this.perm[Z+1]]] % 12; 
+  
+  // The gradients of each corner are now: 
+  // g000 = grad3[gi000]; 
+  // g001 = grad3[gi001]; 
+  // g010 = grad3[gi010]; 
+  // g011 = grad3[gi011]; 
+  // g100 = grad3[gi100]; 
+  // g101 = grad3[gi101]; 
+  // g110 = grad3[gi110]; 
+  // g111 = grad3[gi111]; 
+  // Calculate noise contributions from each of the eight corners 
+  var n000= this.dot(this.grad3[gi000], x, y, z); 
+  var n100= this.dot(this.grad3[gi100], x-1, y, z); 
+  var n010= this.dot(this.grad3[gi010], x, y-1, z); 
+  var n110= this.dot(this.grad3[gi110], x-1, y-1, z); 
+  var n001= this.dot(this.grad3[gi001], x, y, z-1); 
+  var n101= this.dot(this.grad3[gi101], x-1, y, z-1); 
+  var n011= this.dot(this.grad3[gi011], x, y-1, z-1); 
+  var n111= this.dot(this.grad3[gi111], x-1, y-1, z-1); 
+  // Compute the fade curve value for each of x, y, z 
+  var u = this.fade(x); 
+  var v = this.fade(y); 
+  var w = this.fade(z); 
+   // Interpolate along x the contributions from each of the corners 
+  var nx00 = this.mix(n000, n100, u); 
+  var nx01 = this.mix(n001, n101, u); 
+  var nx10 = this.mix(n010, n110, u); 
+  var nx11 = this.mix(n011, n111, u); 
+  // Interpolate the four results along y 
+  var nxy0 = this.mix(nx00, nx10, v); 
+  var nxy1 = this.mix(nx01, nx11, v); 
+  // Interpolate the two last results along z 
+  var nxyz = this.mix(nxy0, nxy1, w); 
+
+  return nxyz; 
+};
+
+var canvas    = document.getElementById('canvas'),
+    ctx       = canvas.getContext('2d'),
+	  perlin    = new ClassicalNoise(),
+    variation = .0025,
+    amp       = 300,
+    variators = [],
+    max_lines = (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) ? 25 : 40,
+    canvasWidth,
+    canvasHeight,
+    start_y;
+
+for (var i = 0, u = 0; i < max_lines; i++, u+=.02) {
+  variators[i] = u;
+}
+
+function draw(){
+  ctx.shadowColor = "rgba(43, 205, 255, 1)";
+  ctx.shadowBlur = 0;
+  
+  for (var i = 0; i <= max_lines; i++){
+    ctx.beginPath();
+    ctx.moveTo(0, start_y);
+    for (var x = 0; x <= canvasWidth; x++) {
+      var y = perlin.noise(x*variation+variators[i], x*variation, 0);
+      ctx.lineTo(x, start_y + amp*y);
+    }
+    var color = Math.floor(150*Math.abs(y));
+    var alpha = Math.min(Math.abs(y)+0.05, .05);
+    ctx.strokeStyle = "rgba(255,255,255,"+alpha*2+")";
+    ctx.stroke();
+    ctx.closePath();
+
+    variators[i] += .005;
+  }
+}
+
+(function init() {
+	resizeCanvas();
+	animate();
+	window.addEventListener('resize', resizeCanvas);
+})();
+
+function animate() {
+  ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+  draw();
+  requestAnimationFrame(animate);
+}
+
+function resizeCanvas(){
+	canvasWidth = document.documentElement.clientWidth,
+	canvasHeight = document.documentElement.clientHeight; 
+
+	canvas.setAttribute("width", canvasWidth);
+	canvas.setAttribute("height", canvasHeight);
+
+	start_y = canvasHeight/2;
+}
+//console.clear();
+</script>
+</body>
+</html>
