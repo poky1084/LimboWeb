@@ -1095,7 +1095,7 @@ function data(json){
 		
 		lastBet.amount = json.data.limboBet.amount;
 		lastBet.payoutMultiplier = json.data.limboBet.state.multiplierTarget;
-		
+		lastBet.crashAt = json.data.limboBet.state.result;
 		if(json.data.limboBet.payoutMultiplier > 0){
 			win = true;
 			lastBet.win = true;
